@@ -20,6 +20,10 @@ public class Game {
         System.out.println("6. Science");
         System.out.println("7. Technology");
         System.out.println("8. Mathematics");
+        System.out.println("9. Programming");
+        System.out.println("10. Algorithms");
+        System.out.println("11. DataScience");
+        System.out.println("12. Geography");
         int topicChoice = getValidIntInput(scanner, "Enter the number of your choice: ");
 
         String topic = switch (topicChoice) {
@@ -31,6 +35,10 @@ public class Game {
             case 6 -> "Science";
             case 7 -> "Technology";
             case 8 -> "Mathematics";
+            case 9 -> "Programming";
+            case 10 -> "Algorithms";
+            case 11 -> "DataScience";
+            case 12 -> "Geography";
             default -> {
                 System.out.println("Invalid choice. Defaulting to Animal.");
                 yield "Animal";
@@ -61,9 +69,11 @@ public class Game {
                 break;
         }
 
-        GameController game = new GameController(playerName, topic, difficulty);
-        game.startGame();
-        scanner.close();
+
+            GameController game = new GameController(playerName, topic, difficulty, scanner); // Pass the scanner
+            game.startGame();
+            scanner.close();
+            DatabaseConfig.closeConnection(); // Close MongoDB connection on exit
     }
 
     private static int getValidIntInput(Scanner scanner, String prompt) {
