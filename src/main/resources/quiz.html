@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const topic = localStorage.getItem('topic');
+            const difficulty = localStorage.getItem('difficulty');
+            if (topic && difficulty) {
+                loadQuestions(topic, difficulty);
+            } else {
+                alert('Topic or difficulty not selected.');
+            }
+        });
+
+        function loadQuestions(topic, difficulty) {
+            fetch(fileName)
+                .then(response => response.json())
+                .then(data => {
+                    displayQuestions(data.questions);
+                })
+                .catch(error => {
+                    console.error('Error loading questions:', error);
+                });
+        }
+
+        function displayQuestions(questions) {
+            const quizContainer = document.getElementById('quiz-container');
+            questions.forEach((question, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.classList.add('question');
+                questionElement.innerHTML = `
+                    <p>${index + 1}. ${question.questionText}</p>
+                    ${question.options.map((option, i) => `
+                        <label>
+                            <input type="radio" name="question${index}" value="${option}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                quizContainer.appendChild(questionElement);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <div id="quiz-container"></div>
+</body>
+</html>

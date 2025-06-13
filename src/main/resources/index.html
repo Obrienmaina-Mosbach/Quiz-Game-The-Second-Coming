@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function startGame(topic, difficulty) {
+            // Store the selected topic and difficulty in localStorage
+            localStorage.setItem('topic', topic);
+            localStorage.setItem('difficulty', difficulty);
+            // Redirect to the quiz page
+            window.location.href = 'quiz.html';
+        }
+    </script>
+</head>
+<body>
+<h1>Welcome to the Quiz Game</h1>
+<label for="topic">Choose a topic:</label>
+<select id="topic">
+    <option value="Animal">Animal</option>
+    <option value="Planets">Planets</option>
+    <option value="Artificial Intelligence">Artificial Intelligence</option>
+    <option value="General Knowledge">General Knowledge</option>
+    <option value="History">History</option>
+    <option value="Science">Science</option>
+    <option value="Technology">Technology</option>
+    <option value="Mathematics">Mathematics</option>
+</select>
+
+<label for="difficulty">Choose a difficulty:</label>
+<select id="difficulty">
+    <option value="Easy">Easy</option>
+    <option value="Medium">Medium</option>
+    <option value="Hard">Hard</option>
+</select>
+
+<button onclick="startGame(
+        document.getElementById('topic').value,
+        document.getElementById('difficulty').value)">Start Quiz</button>
+</body>
+</html>
