@@ -15,13 +15,18 @@ This is a Java-based quiz game v.2.0 where players can choose a topic and diffic
 ## Project Structure
 ```
 brian.dhbw.project.gradle/
-|-- Game.java              # Entry point of the game
-|-- GameController.java    # Manages game flow and logic
-|-- Question.java          # Represents a question with options and an answer
-|-- QuestionBank.java      # Loads questions from JSON files
-|-- ScoreTracker.java      # Manages the player's score
-|-- ScoreBoard.java        # Manages high scores and leaderboard
-|-- resources/             # JSON files containing quiz questions
+|-- Game.java                 # Entry point of the game
+|-- GameController.java       # Manages game flow and logic
+|-- Question.java             # Represents a question with options and an answer
+|-- QuestionBank.java         # Loads questions from JSON files
+|-- ScoreTracker.java         # Manages the player's score
+|-- ScoreBoard.java           # Manages high scores and leaderboard
+|-- resources/                # config.properties
+|-- DatabaseConfig            # Configure MongoDB
+|-- DataInitializer           # load data
+|-- MultipleChoiceQuestion    # manage multiple choice questions
+|-- GameUIWrapper             # Entry to UI game
+|-- QuizQuestion              # manage question
 ```
 
 ## Installation & Setup
@@ -33,23 +38,29 @@ brian.dhbw.project.gradle/
 3. Ensure you have Java installed (JDK 11 or higher).
 4. Run `Game.java` to start the game.
 
-## Usage
-1. Enter your name.
-2. Select a quiz topic.
-3. Choose a difficulty level.
-4. Answer the questions within the time limit.
-5. View your final score and leaderboard rankings.
+>## Usage
+>1. Enter your name.
+>2. Select a quiz topic.
+>3. Choose a difficulty level.
+>4. Answer the questions within the time limit.
+>5. View your final score and leaderboard rankings.
 
 ## Technologies Used
 - Java
-- JSON (for storing questions and scores)
-- Jackson library (for JSON parsing)
+- MongoDB
+- Swing UI
+
+## With this Version
+- Added more quiz topics and difficulty levels
+- Added a Database(Mongo DB)
+- Used Gradle
+- Implemented a graphical user interface (GUI)
+- Add Sound and coffetti 🎊 for celebration
+- Saving player progress
 
 ## Future Improvements
-- Add more quiz topics and difficulty levels
-- Implement a graphical user interface (GUI)
 - Support multiplayer mode
-- Save player progress
+- Implement Timer
 
 ## Author
 Brian Maina Nyawira

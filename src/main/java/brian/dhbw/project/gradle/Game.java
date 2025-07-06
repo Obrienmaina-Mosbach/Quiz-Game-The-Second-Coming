@@ -4,13 +4,11 @@ import java.util.Scanner;
 
 public class Game {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); // This scanner will use the redirected System.in
 
-        // Enter player name
-        System.out.print("Enter your name: ");
+        System.out.println("Enter your name: ");
         String playerName = scanner.nextLine();
 
-        // Choose quiz topic
         System.out.println("Choose a quiz topic:");
         System.out.println("1. Animal");
         System.out.println("2. Planets");
@@ -22,7 +20,7 @@ public class Game {
         System.out.println("8. Mathematics");
         System.out.println("9. Programming");
         System.out.println("10. Algorithms");
-        System.out.println("11. DataScience");
+        System.out.println("11. Data Science");
         System.out.println("12. Geography");
         int topicChoice = getValidIntInput(scanner, "Enter the number of your choice: ");
 
@@ -37,7 +35,7 @@ public class Game {
             case 8 -> "Mathematics";
             case 9 -> "Programming";
             case 10 -> "Algorithms";
-            case 11 -> "DataScience";
+            case 11 -> "Data Science";
             case 12 -> "Geography";
             default -> {
                 System.out.println("Invalid choice. Defaulting to Animal.");
@@ -45,7 +43,6 @@ public class Game {
             }
         };
 
-        // Choose difficulty level
         System.out.println("Choose a difficulty level:");
         System.out.println("1. Easy");
         System.out.println("2. Medium");
@@ -69,24 +66,21 @@ public class Game {
                 break;
         }
 
-
-            GameController game = new GameController(playerName, topic, difficulty, scanner); // Pass the scanner
-            game.startGame();
-            scanner.close();
-            DatabaseConfig.closeConnection(); // Close MongoDB connection on exit
+        // Close scanner
+        scanner.close();
     }
 
     private static int getValidIntInput(Scanner scanner, String prompt) {
         int input;
         while (true) {
-            System.out.print(prompt);
+            System.out.println(prompt);
             if (scanner.hasNextInt()) {
                 input = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
+                scanner.nextLine();
                 break;
             } else {
                 System.out.println("Invalid input. Please enter a number.");
-                scanner.nextLine(); // Consume invalid input
+                scanner.nextLine();
             }
         }
         return input;

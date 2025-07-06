@@ -31,6 +31,7 @@ dependencies {
     implementation("org.json:json:20250107")
     implementation("com.googlecode.json-simple:json-simple:1.1.1")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.18.2")
+    implementation ("org.slf4j:slf4j-api:2.0.13")
 
 }
 
