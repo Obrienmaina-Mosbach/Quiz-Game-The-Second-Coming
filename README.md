@@ -57,6 +57,7 @@ brian.dhbw.project.gradle/
 - Implemented a graphical user interface (GUI)
 - Add Sound and coffetti 🎊 for celebration
 - Saving player progress
+- Correct answer when incorrect answer is given
 
 ## Future Improvements
 - Support multiplayer mode
