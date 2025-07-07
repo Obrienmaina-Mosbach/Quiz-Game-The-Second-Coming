@@ -3,20 +3,41 @@ package brian.dhbw.project.gradle;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.ArrayList;
+import javax.swing.Timer;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class GameController {
+
     private List<QuizQuestion> questions;
     private int currentQuestionIndex;
     private ScoreTracker scoreTracker;
     private ScoreBoard scoreBoard;
+
+
     private List<String> correctResponses = Arrays.asList(
-            "Correct! Well done.🎉",
+            "Correct! Well done.🪅",
             "Nice job! That's right.🎊",
             "Excellent! You got it.🥳",
             "Great work! Correct answer.🎊",
             "Spot on! That's correct.🪅",
-            "Sweet, You are on a Roll. 🎉"
+            "Sweet, You are on a Roll. 🎉",
+            "Fantastic! Keep it up.🌟",
+            "Absolutely right! 👍",
+            "Perfect! You nailed it.🎯"
     );
+
+
+    private List<String> incorrectResponses = Arrays.asList(
+            "Oops, that's incorrect. Try again next time!",
+            "Not quite. Better luck on the next one.",
+            "That's not the answer. Keep learning!",
+            "Incorrect. Don't worry, every mistake is a learning opportunity.",
+            "Wrong answer. But don't give up!"
+    );
+
     private int responseIndex = 0;
     private String playerName;
     private String gameTopic;
@@ -24,12 +45,13 @@ public class GameController {
 
     private GameUIWrapper ui;
 
+
     public GameController(GameUIWrapper ui) {
         this.ui = ui;
         this.currentQuestionIndex = 0;
         this.scoreTracker = new ScoreTracker();
         this.scoreBoard = new ScoreBoard();
-        this.questions = new java.util.ArrayList<>();
+        this.questions = new ArrayList<>();
     }
 
     public void setGameParameters(String playerName, String topic, String difficulty) {
@@ -49,6 +71,7 @@ public class GameController {
         }
     }
 
+
     public void startQuiz() {
         if (questions.isEmpty()) {
             ui.appendOutput("Cannot start quiz: No questions available.\n");
@@ -61,6 +84,7 @@ public class GameController {
     private void displayCurrentQuestion() {
         if (currentQuestionIndex < questions.size()) {
             QuizQuestion question = questions.get(currentQuestionIndex);
+
             ui.displayQuestion(question.getQuestionText(), ((MultipleChoiceQuestion) question).getOptions());
         } else {
             endQuiz();
@@ -75,9 +99,12 @@ public class GameController {
 
         QuizQuestion question = questions.get(currentQuestionIndex);
 
+
         if (userAnswer.equalsIgnoreCase("skip")) {
             ui.appendOutput("Question skipped.\n");
             currentQuestionIndex++;
+            ui.appendOutput("------------------------------------\n");
+            displayCurrentQuestion();
         } else if (userAnswer.equalsIgnoreCase("previous")) {
             if (currentQuestionIndex > 0) {
                 currentQuestionIndex--;
@@ -87,6 +114,8 @@ public class GameController {
                 ui.setButtonsEnabled(true);
                 return;
             }
+            ui.appendOutput("------------------------------------\n");
+            displayCurrentQuestion();
         } else {
             if (question.checkAnswer(userAnswer)) {
                 ui.appendOutput(correctResponses.get(responseIndex) + "\n");
@@ -94,15 +123,30 @@ public class GameController {
                 scoreTracker.incrementScore();
                 ui.appendOutput("Score incremented. Current score: " + scoreTracker.getScore() + "\n");
                 currentQuestionIndex++;
+                ui.appendOutput("------------------------------------\n");
+                displayCurrentQuestion();
             } else {
-                ui.appendOutput("Incorrect. The correct answer is: " + getCorrectAnswerForDisplay(question) + "\n");
+
+                ui.appendOutput(incorrectResponses.get(responseIndex % incorrectResponses.size()) + "\n");
+                ui.appendOutput("The correct answer is: " + getCorrectAnswerForDisplay(question) + "\n");
                 currentQuestionIndex++;
+
+
+                ui.setButtonsEnabled(false);
+                Timer feedbackTimer = new Timer(4500, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ui.appendOutput("------------------------------------\n");
+                        displayCurrentQuestion();
+                        ((Timer)e.getSource()).stop();
+                    }
+                });
+                feedbackTimer.setRepeats(false);
+                feedbackTimer.start();
             }
         }
-        ui.appendOutput("------------------------------------\n");
-
-        displayCurrentQuestion();
     }
+
 
     public void skipQuestion() {
         if (currentQuestionIndex < questions.size()) {
@@ -113,6 +157,7 @@ public class GameController {
             endQuiz();
         }
     }
+
 
     public void loadPreviousQuestion() {
         if (currentQuestionIndex > 0) {
@@ -125,29 +170,49 @@ public class GameController {
         }
     }
 
+
     private void endQuiz() {
-        ui.appendOutput("Quiz finished! Your score for " + gameTopic + " (" + gameDifficulty + ") is: " + scoreTracker.getScore() + "\n");
+
+        int totalQuestions = questions.size();
+        int correctAnswers = scoreTracker.getScore();
+        int incorrectAnswers = totalQuestions - correctAnswers;
+
+
+        ui.appendOutput("--- Quiz Finished! ---\n");
+        ui.appendOutput("Player: " + playerName + "\n");
+        ui.appendOutput("Topic: " + gameTopic + "\n");
+        ui.appendOutput("Difficulty: " + gameDifficulty + "\n");
+        ui.appendOutput("Total Questions: " + totalQuestions + "\n");
+        ui.appendOutput("Correct Answers: " + correctAnswers + "\n");
+        ui.appendOutput("Incorrect Answers: " + incorrectAnswers + "\n");
+        ui.appendOutput("Your Final Score: " + scoreTracker.getScore() + "\n\n");
+
+
         scoreBoard.updateScore(playerName, scoreTracker.getScore(), gameDifficulty, gameTopic);
 
+
         String leaderboardText = scoreBoard.getLeaderboardString(gameDifficulty, gameTopic);
+
 
         System.err.println("DEBUG: Leaderboard String from ScoreBoard: \n" + leaderboardText);
 
         ui.appendOutput(leaderboardText);
 
-        ui.endQuiz(); //(disables buttons)
+        ui.endQuiz();
     }
 
 
     public void resetGame() {
         this.currentQuestionIndex = 0;
-        this.scoreTracker = new ScoreTracker(); // Reset score
-        this.questions = new java.util.ArrayList<>(); // Clear questions
-        this.responseIndex = 0; // Reset response index
-        this.playerName = null; // Clear player name
-        this.gameTopic = null; // Clear topic
-        this.gameDifficulty = null; // Clear difficulty
+        this.scoreTracker = new ScoreTracker();
+        this.questions = new ArrayList<>();
+        this.responseIndex = 0;
+        this.playerName = null;
+        this.gameTopic = null;
+        this.gameDifficulty = null;
+
     }
+
 
     private String getCorrectAnswerForDisplay(QuizQuestion question) {
         if (question instanceof MultipleChoiceQuestion) {
