@@ -14,11 +14,11 @@ The student acknowledges and agrees that the use of AI is strictly prohibited du
 
 ## Checklist before handing in your work
 
-* [ ] Review the assignment requirements to ensure you have completed all the necessary tasks.
-* [ ] Double-check your links and make sure that links lead to where you intended. Each answer should have links to work done by you in your own git repository. (Exception is Speed Coding)
-* [ ] Make sure you have at least 10 references to your project code (This is important evidence to prove that your project is substantial enough to support the learning outcome of object oriented design and coding within a larger piece of code.)
-* [ ] Include comments to explain your referenced code and why it supports the learning outcome.
-* [ ] Commit and push this markup file to your personal git repository and hand in the link and a soft-copy via email at the end of the designated time period.
+* [x] Review the assignment requirements to ensure you have completed all the necessary tasks.
+* [x] Double-check your links and make sure that links lead to where you intended. Each answer should have links to work done by you in your own git repository. (Exception is Speed Coding)
+* [x] Make sure you have at least 10 references to your project code (This is important evidence to prove that your project is substantial enough to support the learning outcome of object oriented design and coding within a larger piece of code.)
+* [x] Include comments to explain your referenced code and why it supports the learning outcome.
+* [x] Commit and push this markup file to your personal git repository and hand in the link and a soft-copy via email at the end of the designated time period.
 
 Remember, this checklist is not exhaustive, but it should help you ensure that your work is complete, well-structured, and meets the required standards.
 
@@ -91,7 +91,10 @@ typical data types in java are int, double, float, char, boolean, long, short, b
 * your choice
 
 
-*your text*
+>Here is a link for [Strings](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/4c6a952bf0e59fa48d543dc70077c01a1c25fb80/src/main/java/brian/dhbw/project/gradle/QuestionBank.java#L16) I have used   
+>Here is a link for [int](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/4c6a952bf0e59fa48d543dc70077c01a1c25fb80/src/main/java/brian/dhbw/project/gradle/GameController.java#L176)I have used  
+>Here is a link for [boolean](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/4c6a952bf0e59fa48d543dc70077c01a1c25fb80/src/main/java/brian/dhbw/project/gradle/GameController.java#L169) I have used  
+>Here is a link for [array](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/4c6a952bf0e59fa48d543dc70077c01a1c25fb80/src/main/java/brian/dhbw/project/gradle/GameController.java#L20) I have used
 
 | Total Achievable Points | Points Reached During Grading |
 |------------------------|-------------------------------|
@@ -104,7 +107,8 @@ typical data types in java are int, double, float, char, boolean, long, short, b
 
 Examples of complex data structures in java are ArrayList, HashMap, HashSet, LinkedList, and TreeMap. Please provide an example of how you have used **two** of these complex data structures in your code and explain why you have chosen these data structures.
 
-*your text*
+>Here is a link for [arrayLists](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/GameController.java#L54) I have used in my project  
+>because they do not have a fixed size which is important for when the questions(per topic and level) are gathered they can vary in number.
 
 | Total Achievable Points | Points Reached During Grading |
 |------------------------|-------------------------------|
@@ -120,7 +124,11 @@ Explain HOW and WHY your **project** demonstrates the use of OOP by using all of
 * Attributes 
 Link to the code in your project that demonstrates what you have explained above.
 
-*your text*
+>I have used an [QuizQuestion class](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/4c6a952bf0e59fa48d543dc70077c01a1c25fb80/src/main/java/brian/dhbw/project/gradle/QuizQuestion.java#L3)  
+> which is used inherited by my [MultipleChoice Class](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/4c6a952bf0e59fa48d543dc70077c01a1c25fb80/src/main/java/brian/dhbw/project/gradle/MultipleChoiceQuestion.java#L9)  
+> allowing me to make use of methods such as [getQuestionText](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/4c6a952bf0e59fa48d543dc70077c01a1c25fb80/src/main/java/brian/dhbw/project/gradle/MultipleChoiceQuestion.java#L41) 
+> I have made use of [Object](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/MultipleChoiceQuestion.java#L17https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/MultipleChoiceQuestion.java#L17) that are created from Constractor [Constructor](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/QuizQuestion.java#L3),  
+
 
 | Total Achievable Points | Points Reached During Grading |
 |------------------------|-------------------------------|
@@ -131,8 +139,26 @@ Link to the code in your project that demonstrates what you have explained above
 Please showcase **two** areas where you have used object orientation and explain the advantage that object oriented code brings to the application or the problem that your code is addressing.
 Examples in java of good oo design are encapsulation, inheritance, polymorphism, and abstraction. 
 
+## Constructors
+>Link 1 to [Constructor](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/ScoreTracker.java#L5)  
+>Link 2 to [Constructor](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/QuizQuestion.java#L3)  
+>Link 2 to [Constructor](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/MultipleChoiceQuestion.java#L9)
 
-*your text*
+## Encapsulation
+>Link 1 to [Encapsulation](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/ScoreTracker.java#L4)  
+>Link 2 to [Encapsulation](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/DatabaseConfig.java#L17)
+
+## Inheritance
+>Link 1 to Inheritance [childClass](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/MultipleChoiceQuestion.java#L9)  extends from [Superclass](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/QuizQuestion.java#L3)
+
+## Polymorphism
+>Link 1 to Polymorphism [Line](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/GameController.java#L120)
+
+## Abstraction
+>Link 1 to [Abstraction](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/QuizQuestion.java#L3)  
+>Link 2 to [Abstraction](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/68c0169723deb7122b7d235c28a530e890acb22c/src/main/java/brian/dhbw/project/gradle/QuizQuestion.java#L30)
+
+>Object orientation allows me to have dry code that means I am able to reuse code without having to write redundant or repetitive code
 
 | Total Achievable Points | Points Reached During Grading |
 |------------------------|-------------------------------|
@@ -186,7 +212,9 @@ Generics in java are used to create classes, interfaces, and methods that operat
 ### Q9. Class Libraries
 Examples of class libraries in java are the Java Standard Library, JavaFX, Apache Commons, JUnit, Log4j, Jackson, Guava, Joda-Time, Hibernate, Spring, Maven, and many more. Please provide an example of how you have used a class library in your **project** code and explain why you have chosen to use this class library. 
 
-*your text*
+>Here is a link for [Swing](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/4c6a952bf0e59fa48d543dc70077c01a1c25fb80/src/main/java/brian/dhbw/project/gradle/GameUIWrapper.java#L3) I have used  
+> in my application to allow me apply ui elements enhancing my application.
+> 
 
 | Total Achievable Points | Points Reached During Grading |
 |------------------------|-------------------------------|
@@ -197,8 +225,8 @@ Examples of class libraries in java are the Java Standard Library, JavaFX, Apach
 # Creativity (10%)
 Which one did you choose: 
 
-* [ ] Web Interface with Design
-* [ ] Database Connected
+* [x] Web Interface with Design
+* [x] Database Connected
 * [ ] Multithreading
 * [ ] File I/O
 * [ ] API
@@ -206,7 +234,7 @@ Which one did you choose:
 
 
 
-*your text*
+>I used Swing for my [User Interface](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/4c6a952bf0e59fa48d543dc70077c01a1c25fb80/src/main/java/brian/dhbw/project/gradle/GameUIWrapper.java#L3) and MongoDB for my [database](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/blob/4c6a952bf0e59fa48d543dc70077c01a1c25fb80/src/main/java/brian/dhbw/project/gradle/DatabaseConfig.java#L48)
 
 
 
@@ -221,12 +249,14 @@ Which one did you choose:
 Please enter **three** Links to your speed coding session GITs and name your partner. 
 
 
-*your text*
-
+>Brian, and Daniel [GradeSystem](https://github.com/DanielMiuta24/JavaClass/tree/2e91866f2baa8a0e85bf4cc707e3e13e5afa57aa/Semester2/GradeSystem)  
+>Brian, and Niki [CarRentalManager](https://github.com/Obrienmaina-Mosbach/CarRentalManager/tree/main/src)  
+>Brian, Sahil and Joaquin [Inventory Management System](https://github.com/Obrienmaina-Mosbach/Bumble-Bee-The-Second-Coming/tree/main/InventoryManagementSystem)
 
 Paste your class diagram for your project that you developed during the peer review class here: 
 
-*your image*
+>Image from Peer Review for Class: 
+
 
 It can be done very simply by just copying any image and pasting it while editing Readme.md.
 
