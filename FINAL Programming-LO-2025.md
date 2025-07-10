@@ -28,21 +28,17 @@ Good luck with your evaluation!
 
 
 ## Link
-
-
-*your text*
+My [Java Project](https://github.com/Obrienmaina-Mosbach/Quiz-Game-The-Second-Coming/tree/68c0169723deb7122b7d235c28a530e890acb22c)  link
 
 ## TECH STACK
 
-*your text*
+Java Swing
+MongoDB
+JAVA
 
 ## What did you achieve? 
 
-*your text*
-
-
-
-
+I managed to create an interactive game with a UI and a Database
 
 ## Learning Outcomes
 
