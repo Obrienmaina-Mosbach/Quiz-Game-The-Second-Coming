@@ -251,7 +251,8 @@ Please enter **three** Links to your speed coding session GITs and name your par
 
 Paste your class diagram for your project that you developed during the peer review class here: 
 
->Image from Peer Review for Class: 
+>Image from Peer Review for Class:
+![Quiz Game](src/assets/Images/img.png)
 
 
 It can be done very simply by just copying any image and pasting it while editing Readme.md.
